@@ -43,13 +43,24 @@ public class DevBot extends TelegramLongPollingBot {
         }
     }
 
-    @Override
+    /*@Override
     public String getBotUsername() {
         return dotenv.get("BOT_USERNAME");
+    }*/
+
+    @Override
+    public String getBotUsername() {
+        return System.getenv("BOT_USERNAME");
     }
+
+
+    /*@Override
+    public String getBotToken() {
+        return dotenv.get("BOT_TOKEN");
+    }*/
 
     @Override
     public String getBotToken() {
-        return dotenv.get("BOT_TOKEN");
+        return System.getenv("BOT_TOKEN");
     }
 }
