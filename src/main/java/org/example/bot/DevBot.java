@@ -50,6 +50,6 @@ public class DevBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return dotenv.get("BOT_TOKEN"); // без логов!
+        return dotenv.get("BOT_TOKEN");
     }
 }

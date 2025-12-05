@@ -33,7 +33,6 @@ public class UpdateController {
                 return feedbackService.handleFeedback(update);
             }
 
-            // Команды слэша — всегда обрабатываем
             if (text.equals(BotCommands.START)) return menuService.handleStartCommand(update);
             if (text.equals(BotCommands.CV_CMD)) return cvService.sendCV(update);
             if (text.equals(BotCommands.SOCIALS_CMD)) return socialsService.getSocialsMenu(chatId);
@@ -45,7 +44,6 @@ public class UpdateController {
                 return feedbackService.askForFeedback(chatId);
             if (text.equals(BotCommands.LANG_CMD)) return menuService.changeLanguage(chatId);
 
-            // Теперь проверяем локализованные тексты кнопок
             if (text.equals(localizationService.getMessage("btn.cv", locale)))
                 return cvService.sendCV(update);
             if (text.equals(localizationService.getMessage("btn.skills", locale)))
