@@ -1,0 +1,68 @@
+############################
+# Build output
+############################
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+############################
+# IDE
+############################
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+############################
+# OS-specific files
+############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+############################
+# Environment / Secrets
+############################
+.env
+application.properties
+
+############################
+# Maven
+############################
+.mvn/
+settings.xml
+
+############################
+# Logs
+############################
+*.log
+
+############################
+# Personal files
+############################
+*.pdf
+
+#git remote add origin https://github.com/berdiboev/telegram-personal-bot.git
