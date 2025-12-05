@@ -64,5 +64,3 @@ settings.xml
 # Personal files
 ############################
 *.pdf
-
-#git remote add origin https://github.com/berdiboev/telegram-personal-bot.git
