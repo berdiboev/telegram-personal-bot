@@ -1,52 +1,66 @@
+############################
+# Build output
+############################
 target/
-!.mvn/wrapper/maven-wrapper.jar
+build/
 !**/src/main/**/target/
 !**/src/test/**/target/
-.kotlin
+!**/src/main/**/build/
+!**/src/test/**/build/
 
+############################
+# IDE
+############################
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+.idea/
 *.iml
 *.ipr
+*.iws
 
 ### Eclipse ###
-.apt_generated
 .classpath
-.factorypath
 .project
-.settings
+.settings/
+.apt_generated
+.factorypath
 .springBeans
 .sts4-cache
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
+############################
+# OS-specific files
+############################
 .DS_Store
+Thumbs.db
+ehthumbs.db
 
+############################
+# Environment / Secrets
+############################
 .env
+application.properties
 
+############################
 # Maven
+############################
 .mvn/
 settings.xml
 
+############################
 # Logs
+############################
 *.log
 
-# OS
-Thumbs.db
-ehthumbs.db
+############################
+# Personal files
+############################
+*.pdf
