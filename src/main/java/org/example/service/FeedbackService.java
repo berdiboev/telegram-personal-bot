@@ -19,9 +19,9 @@ public class FeedbackService {
     private final LocalizationService localizationService;
     private final SessionService sessionService;
 
-    @Value("${OWNER_ID}")
-    private long ownerChatId;
-    //private final long ownerChatId = Long.parseLong(System.getenv("OWNER_ID"));
+//    @Value("${OWNER_ID}")
+//    private long ownerChatId;
+    private final long ownerChatId = Long.parseLong(System.getenv("OWNER_ID"));
 
 
     public SendMessage askForFeedback(long chatId) {
