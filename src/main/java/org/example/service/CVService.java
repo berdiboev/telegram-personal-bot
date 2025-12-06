@@ -15,14 +15,14 @@ public class CVService {
     private final LocalizationService localizationService;
     private final SessionService sessionService;
 
-    @Value("${CV_FILE_URL}")
-    private String cvFileUrl;
+    @Value("${CV_FILE_ID}")
+    private String cvFileId;
 
     public SendDocument sendCV(Update update) {
         long chatId = update.getMessage().getChatId();
         Locale locale = sessionService.getLocale(chatId);
 
-        InputFile cvFile = new InputFile(cvFileUrl);
+        InputFile cvFile = new InputFile(cvFileId);
 
         SendDocument doc = new SendDocument();
         doc.setChatId(chatId);
