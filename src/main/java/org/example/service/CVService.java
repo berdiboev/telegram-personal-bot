@@ -1,14 +1,12 @@
 package org.example.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.springframework.beans.factory.annotation.Value;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Locale;
 
 @Service
@@ -17,20 +15,18 @@ public class CVService {
     private final LocalizationService localizationService;
     private final SessionService sessionService;
 
+    @Value("${CV_FILE_URL}")
+    private String cvFileUrl;
+
     public SendDocument sendCV(Update update) {
         long chatId = update.getMessage().getChatId();
         Locale locale = sessionService.getLocale(chatId);
 
-        InputStream cvStream = null;
-        try {
-            cvStream = new ClassPathResource("cv/Komiljon_CV.pdf").getInputStream();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        InputFile cvFile = new InputFile(cvFileUrl);
 
         SendDocument doc = new SendDocument();
         doc.setChatId(chatId);
-        doc.setDocument(new InputFile(cvStream, "Komiljon_CV.pdf"));
+        doc.setDocument(cvFile);
         doc.setCaption(localizationService.getMessage("bot.cv_caption", locale));
 
         return doc;
