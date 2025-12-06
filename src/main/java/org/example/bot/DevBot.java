@@ -19,7 +19,7 @@ public class DevBot extends TelegramLongPollingBot {
     private static final Logger log = Logger.getLogger(DevBot.class.getName());
     private final BotCommands botCommands = new BotCommands();
     private final UpdateController updateController;
-    private final Dotenv dotenv;
+//    private final Dotenv dotenv;
 
     @Override
     public void onUpdateReceived(Update update) {
