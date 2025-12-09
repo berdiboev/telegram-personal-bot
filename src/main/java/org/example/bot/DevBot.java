@@ -24,38 +24,23 @@ public class DevBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-//        Object response = updateController.handle(update);
-//        try {
-//            if (response instanceof BotApiMethod<?> apiMethod) {
-//                execute(apiMethod);
-//            } else if (response instanceof SendDocument document) {
-//                execute(document);
-//            } else if (response instanceof SendPhoto photo) {
-//                execute(photo);
-//            } else if (response instanceof List<?> list) {
-//                for (Object obj : list) {
-//                    if (obj instanceof BotApiMethod<?> method) {
-//                        execute(method);
-//                    }
-//                }
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        if (update.hasMessage() && update.getMessage().hasDocument()) {
-            String fileId = update.getMessage().getDocument().getFileId();
-            String chatId = update.getMessage().getChatId().toString();
-
-            // ОТПРАВЛЯЕМ ID ФАЙЛА В ЧАТ ВЛАДЕЛЬЦА
-            // Предполагается, что OWNER_ID и BOT_TOKEN уже настроены в переменных окружения.
-            try {
-                execute(SendMessage.builder()
-                        .chatId(chatId)
-                        .text("РАБОЧИЙ file_id для DevBot: " + fileId)
-                        .build());
-            } catch (Exception e) {
-                e.printStackTrace();
+        Object response = updateController.handle(update);
+        try {
+            if (response instanceof BotApiMethod<?> apiMethod) {
+                execute(apiMethod);
+            } else if (response instanceof SendDocument document) {
+                execute(document);
+            } else if (response instanceof SendPhoto photo) {
+                execute(photo);
+            } else if (response instanceof List<?> list) {
+                for (Object obj : list) {
+                    if (obj instanceof BotApiMethod<?> method) {
+                        execute(method);
+                    }
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
